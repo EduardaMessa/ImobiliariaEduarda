@@ -1,0 +1,36 @@
+<%- include('../cabecalho.ejs') %>
+<br>
+<br>
+<table class="table table-striped table-hover">
+    <tr>
+        <th>Id</th>
+        <th>Cidade</th>
+        <th>Rua</th>
+        <th>Localizacao</th>
+        <th>Numero</th>
+        <th>Bairro</th>
+        <th>Foto</th>
+        <th>Editar</th>
+        <th>Deletar</th>
+    </tr>
+    <% Imoveis.forEach(function(imovel){ %>
+        <tr>
+            <td><%=imovel._id %></td>
+            <td><%=imovel.cidade %></td>
+            <td><%=imovel.rua %></td>
+            <td><%=imovel.localizacao %></td>
+            <td><%=imovel.numero %></td>
+            <td><%=imovel.bairro %></td>
+            <td>
+                <img style="max-width: 60px;" src="/fotos/<%=imovel.foto %>" alt="Foto do Imovel">
+            </td>
+            <td>
+                <a href="/admin/imovel/edt/<%=imovel._id %>">Editar</a>
+            </td>
+            <td>
+                <a href="/admin/imovel/del/<%=imovel._id %>">Excluir</a>
+            </td>
+        </tr>
+    <% }) %>
+</table>
+<%- include('../rodape.ejs') %>

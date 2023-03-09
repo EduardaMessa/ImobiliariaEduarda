@@ -1,0 +1,35 @@
+<%- include('../cabecalho.ejs') %>
+<form method="post" enctype="multipart/form-data">
+    <br><br>
+    ID<br>
+    <input type="text" name="id" readonly value="<%=Contrato._id%>">
+    <br><br>
+    Data<br> 
+    <input class="form-control" type="date" name="titulo" placeholder="Data">
+    <br><br>
+    Valor<br>
+    <input class="form-control" type ="number" name="valor" placeholder="Digite o valor"></input>
+    <br><br>
+    Nome do cliente<br> 
+    <select class="form-select" name="nomeCli" aria-label="Selecione o Cliente">
+        <% Clientes.forEach(function(cliente) { %>
+            <option value="<%= cliente._id %>"><%= cliente.nome %></option>
+        <% }); %>
+    </select>
+    <br><br>
+    Nome da imobiliaria<br> 
+    <input class="form-control" type="text" name="nomeIMob" placeholder="Digite o nome da imobiliaria"></input>
+    <br><br>
+    Número do imovel<br> 
+    <select class="form-select" name="numimovel" aria-label="Selecione o Imovel">
+        <% Imoveis.forEach(function(imovel) { %>
+            <option value="<%= imovel._id %>"><%= imovel.numero %></option>
+        <% }); %>
+    </select>
+    <br><br>
+    Foto do Imovel<br>
+    <input type="file" name="foto">
+    <br><br>
+    <input type="submit" value="Adicionar">
+</form>
+<%- include('../rodape.ejs') %>
